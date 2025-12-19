@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Cloudfront 1</title>
+    <link rel="stylesheet" href="style.css?v=2.13.A">
+</head>
+<body>
+    <div class="header-shape">
+        <h1>Static S3 Website on Cloudfront</h1>
+        <h2>All done in Terraform with Blood, Sweat, Tears and no servers.</h2>
+        <p>I, Jaune Alcide, thank Suge WAF and My Senpais, For Teaching Me about the Cloud. One Step Closer To Escaping Keisha!</p>
+        <p><strong>With This Class, I Will Net >\$500,000 Per Year!</strong></p>
+    </div>
+
+    <div class="hexagon-gallery">
+        <div class="hex-row">
+            <div class="hexagon-item" data-src="images/japan-home1.jpeg">
+                <div class="hexagon">
+                    <img src="images/japan-home1.jpeg" alt="Lush green forest">
+                    <div class="hex-text"><span>View from Future Home</span></div>
+                </div>
+            </div>
+            <div class="hexagon-item" data-src="images/japan-home2.jpeg">
+                <div class="hexagon">
+                    <img src="images/japan-home2.jpeg" alt="River in a mountain valley">
+                    <div class="hex-text"><span>Future Home Bath</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="hex-row">
+            <div class="hexagon-item" data-src="images/female1.jpg">
+                <div class="hexagon">
+                    <img src="images/female1.jpg" alt="Misty forest path">
+                    <div class="hex-text"><span>....</span></div>
+                </div>
+            </div>
+            <div class="hexagon-item" data-src="images/female2.avif">
+                <div class="hexagon">
+                    <img src="images/female2.avif" alt="Sun setting over a grassy field">
+                    <div class="hex-text"><span>Bronze Bomb</span></div>
+                </div>
+            </div>
+            <div class="hexagon-item" data-src="images/female3.jpg">
+                <div class="hexagon">
+                    <img src="images/female3.jpg" alt="Sun rays through a large tree">
+                    <div class="hex-text"><span>That Look</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="details-box">
+        <div class="instance-info">
+            <p><b>Static Website Hosted on S3 but served from Cloudfront.</b></p>
+            <p><b>Availability:</b> Global</p>
+            <p><b>Virtual Private Cloud (VPC):</b> Not Needed</p>
+            <p><b>Server Provisioned:</b> None</p>
+        </div>
+
+        <div class="button-container">
+            <a href="images/big1.jpeg" target="_blank" class="repo-button">
+                Don't want to read? Great, have this!
+            </a>
+            <a href="" target="_blank" class="repo-button">
+                This project's GitHub Repo...coming soon.
+            </a>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Get the elements we need to work with
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.close-button');
+        const hexagonItems = document.querySelectorAll('.hexagon-item');
+
+        // Loop through all hexagons and add a click event to each
+        hexagonItems.forEach(item => {
+            item.addEventListener('click', () => {
+                modal.style.display = 'flex'; // Show the modal (using flex to center content)
+                modalImg.src = item.dataset.src; // Set the image source from the data-src attribute
+            });
+        });
+
+        // Function to close the modal
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // Add click events to close the modal
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            // Close the modal if the user clicks on the dark overlay (but not the image itself)
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
